@@ -1,6 +1,7 @@
 package com.eappcat.starter;
 
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,5 +20,15 @@ public class StarterApplication {
     @Bean
     public PaginationInterceptor paginationInterceptor() {
         return new PaginationInterceptor();
+    }
+
+
+    @Bean
+    PerformanceInterceptor performanceInterceptor(){
+        PerformanceInterceptor performanceInterceptor=new PerformanceInterceptor();
+        performanceInterceptor.setMaxTime(1000);
+        performanceInterceptor.setFormat(true);
+        performanceInterceptor.setWriteInLog(true);
+        return performanceInterceptor;
     }
 }

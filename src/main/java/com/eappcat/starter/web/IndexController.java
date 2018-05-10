@@ -15,7 +15,7 @@ import java.util.List;
 public class IndexController {
     @Autowired
     UserMapper userMapper;
-    @GetMapping
+    @GetMapping("/")
     public List<User> index(){
 //        List<User> user=userMapper.findAll();
         List<User> user=userMapper.findAllByPage(new Pagination(2,10));
