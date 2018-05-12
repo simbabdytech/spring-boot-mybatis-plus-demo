@@ -10,7 +10,6 @@
                       where up.USERID = #{userId}
         union
         select p.name from tbl_user_role ur join
-                      tbl_user_role r on ur.ROLEID = r._ID join
                       tbl_role_permission rp on rp.ROLEID = ur.ROLEID join
                       tbl_permission p on rp.PERMISSION = p._ID
                       where ur.USERID = #{userId}
