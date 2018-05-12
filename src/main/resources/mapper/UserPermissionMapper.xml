@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eappcat.starter.mapper.UserPermissionMapper">
+
+    <!-- 开启二级缓存 -->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+    <select id="findUserPermissions" resultType="java.lang.String">
+        select p.name from tbl_user_permission up join
+                      tbl_permission p on up.PERMISSION = p._ID
+                      where up.USERID = #{userId}
+        union
+        select p.name from tbl_user_role ur join
+                      tbl_user_role r on ur.ROLEID = r._ID join
+                      tbl_role_permission rp on rp.ROLEID = ur.ROLEID join
+                      tbl_permission p on rp.PERMISSION = p._ID
+                      where ur.USERID = #{userId}
+    </select>
+
+</mapper>

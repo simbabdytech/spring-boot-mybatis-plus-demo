@@ -1,6 +1,6 @@
 package com.eappcat.starter.mapper;
 
-import com.eappcat.starter.entity.UserRole;
+import com.eappcat.starter.entity.UserPermission;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 import java.util.List;
@@ -13,6 +13,6 @@ import java.util.List;
  * @author Xuan Yue Bo
  * @since 2018-05-12
  */
-public interface UserRoleMapper extends BaseMapper<UserRole> {
-    List<String> findUserRoles(String userId);
+public interface UserPermissionMapper extends BaseMapper<UserPermission> {
+    List<String> findUserPermissions(String userId);
 }

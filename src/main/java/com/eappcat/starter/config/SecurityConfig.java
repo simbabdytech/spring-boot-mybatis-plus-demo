@@ -38,6 +38,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     AuthenticationEntryPoint authenticationEntryPoint(){
         return new Http401AuthenticationEntryPoint("Authentication failed");
     }
+
+    /***
+     * 自定义加密解密方式
+     * @return
+     */
     @Bean
     PasswordEncoder passwordEncoder(){
         return new PasswordEncoder() {

@@ -6,6 +6,8 @@ import com.eappcat.starter.service.UserRoleService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -17,4 +19,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRole> implements UserRoleService {
 
+    @Override
+    public List<String> findUserRoles(String userId) {
+        return this.baseMapper.findUserRoles(userId);
+    }
 }

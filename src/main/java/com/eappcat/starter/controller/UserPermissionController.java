@@ -1,7 +1,6 @@
 package com.eappcat.starter.controller;
 
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
@@ -12,11 +11,11 @@ import org.springframework.stereotype.Controller;
  * </p>
  *
  * @author Xuan Yue Bo
- * @since 2018-05-11
+ * @since 2018-05-12
  */
 @Controller
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/userPermission")
+public class UserPermissionController {
 
 }
 
