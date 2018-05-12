@@ -11,4 +11,5 @@ import java.util.List;
 public interface UserMapper extends BaseMapper<User> {
     List<User> findAll();
     List<User> findAllByPage(Pagination pagination);
+    User findByUsername(String username);
 }

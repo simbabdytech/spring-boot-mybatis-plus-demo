@@ -21,11 +21,10 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 @TableName("tbl_user")
-public class User implements Serializable {
+public class User extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String id;
     private String address;
     private String authenticate;
     private String mail;
@@ -33,15 +32,9 @@ public class User implements Serializable {
     private String password;
     private String phone;
     private String sex;
-    private String updatedby;
     private String mobile;
-    private Date updateddate;
     private String realname;
     private Date dob;
     private String logo;
-    private String createdby;
-    private Date createddate;
     private String openid;
-
-
 }

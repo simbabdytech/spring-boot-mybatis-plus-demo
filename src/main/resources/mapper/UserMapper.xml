@@ -7,4 +7,7 @@
     <select id="findAllByPage" resultType="com.eappcat.starter.entity.User">
         select * from tbl_user
     </select>
+    <select id="findByUsername" resultType="com.eappcat.starter.entity.User">
+         select * from tbl_user where `name` = #{username}
+    </select>
 </mapper>

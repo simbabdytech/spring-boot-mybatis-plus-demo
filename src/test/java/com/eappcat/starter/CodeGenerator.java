@@ -45,11 +45,13 @@ public class CodeGenerator {
                 .setEntityLombokModel(true)
                 .setDbColumnUnderline(true)
                 .setNaming(NamingStrategy.underline_to_camel)
+                .setSuperEntityClass("com.eappcat.starter.entity.BaseEntity")
                 .setInclude(tableNames);//修改替换成你需要的表名，多个表名传数组
         config.setActiveRecord(false)
                 .setAuthor("Xuan Yue Bo")
                 .setOutputDir(file.getAbsolutePath())
-                .setFileOverride(false);
+                .setFileOverride(false)//关闭文件覆盖
+                .setOpen(false);//关闭打开
         if (!serviceNameStartWithI) {
             config.setServiceName("%sService");
         }
