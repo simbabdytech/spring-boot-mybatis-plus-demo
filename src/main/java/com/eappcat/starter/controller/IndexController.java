@@ -1,10 +1,14 @@
 package com.eappcat.starter.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.plugins.pagination.Pagination;
 import com.eappcat.starter.base.Result;
 import com.eappcat.starter.entity.User;
 import com.eappcat.starter.mapper.UserMapper;
+import com.eappcat.starter.model.LoginVO;
 import com.google.common.base.Preconditions;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationServiceException;
@@ -34,10 +38,12 @@ public class IndexController {
     }
 
     @PostMapping("/login")
-    public Result<Map> login(@RequestBody User user, HttpServletRequest request) throws AuthenticationServiceException {
-        Preconditions.checkArgument(user.getName()!=null);
+    @ApiOperation(value="登录api", notes="根据用户名密码登陆")
+    public Result<Map> login(
+            @RequestBody LoginVO user, HttpServletRequest request) throws AuthenticationServiceException {
+        Preconditions.checkArgument(user.getUsername()!=null);
         Preconditions.checkArgument(user.getPassword()!=null);
-        Authentication authentication=authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getName(),user.getPassword()));
+        Authentication authentication=authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         request.getSession().setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext());
         HashMap map=new HashMap();

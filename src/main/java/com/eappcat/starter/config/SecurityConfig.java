@@ -40,6 +40,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         super.configure(web);
         web.ignoring().antMatchers("/public/**");
+        web.ignoring().antMatchers("/swagger-resources/**");
+        web.ignoring().antMatchers("/swagger-resource");
+        web.ignoring().antMatchers("/v2/**");
+        web.ignoring().antMatchers("/swagger-ui.html");
     }
 
     @Bean
